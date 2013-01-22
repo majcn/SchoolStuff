@@ -1,0 +1,74 @@
+	#Napis{
+		background-color:#FFFFFF;
+		width:100px;
+		height:182px;
+		text-align:left;
+		float:left;
+		font-size:20px;
+		
+	}
+	#Text{
+		background-color:#FFFFFF;
+		width:300px;
+		height:182px;
+		text-align:left;
+		float:center;
+	}
+	#Glavna{
+		background-color:#FFFFFF;
+		width:400px;
+		height:182px;
+		padding-left:100px;
+		
+	}
+	#Fonti{
+		background-color:#FFFFFF;
+		width:100px;
+		height:26px;
+		text-align:left;
+		float:left;
+	}
+	#PregledTecajev{
+	 width:500px;
+	 background-color:#FFFFFF;
+	 text-align:center;
+	
+	}
+	#PregledTecajevPrijava{
+	 width:300px;
+	 height:300px;
+	 background-color:#FFFFFF;
+	 text-align:left;
+	 padding-left:100px;
+	
+	}
+
+	b{
+			font-weight:bold;
+			font-size:20px;
+			color:#000000;
+	}
+	p{
+		color:#CC0000;
+		font-size:15px;
+	}
+	i{
+		color:#0033CC;
+		font-weight:normal;
+		}
+
+ 
+ 
+ 
+
+ 
+			
+		
+			
+	
+
+
+ 
+	
+	
+	

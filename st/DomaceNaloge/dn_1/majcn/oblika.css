@@ -1,0 +1,46 @@
+body
+{
+	background-color:#0000FF;
+}
+#naslov
+{
+	text-align:center;
+	height:100px;
+	background-color:#FF0000;
+}
+#vsebina
+{
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#FF00FF;
+	width:80%;
+	height:400px;
+}
+#vsebina h3 em
+{
+	color:pink;
+	font-size:15px;
+}
+#menu a:hover
+{
+	color:#000000;
+}
+#menu
+{
+	text-align:center;
+	background-color:#00FF00;
+}
+#oblivanje
+{
+	float:left;
+}
+table, th, td
+{
+	border: 1px solid black;
+}
+td
+{
+	width:30px;
+	height:30px;
+	text-align:center;
+}

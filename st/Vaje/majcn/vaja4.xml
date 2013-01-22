@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE vpisani SYSTEM "vaja4.dtd">
+
+<vpisani>
+	<student>
+		<ime>Janez Novak</ime>
+		<ulica>Trzaska 25</ulica>
+		<posta>1000</posta>
+		<email>janez.novak@student.uni-lj.si</email>
+		<email>janez.novak@email.si</email>
+		<teza enota="kg">50</teza>
+		<vpisna>63123123</vpisna>
+	</student>
+</vpisani>

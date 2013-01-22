@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="author" content= "Gregor Majcen" />
+		<title>3. Vaje</title>
+        <script type="text/javascript">
+		function dodajElement(){
+			var podvojen = false;
+			var parent = document.getElementById("vsebina");
+			var getText = document.getElementById("tekst");
+			for(var i=0; i<parent.childNodes.length; i++)
+				if(parent.childNodes[i].innerHTML == getText.value)
+				{
+					parent.childNodes[i].style.color = "red";
+					podvojen = true;
+				}
+				else
+				{
+					parent.childNodes[i].style.color = "black";
+				}
+			if(!podvojen)
+			{
+				var elLI = document.createElement("li");
+				elLI.innerHTML = getText.value;
+				parent.appendChild(elLI);
+			}
+		}
+		</script>
+	</head>
+	<body>
+    	Vpiši:
+  		<input type="text" id="tekst"/>
+  		<input type="button" id="gumb" onclick="dodajElement()" value="Dodaj"/>
+  		<ul id="vsebina"></ul> 	
+	</body>
+</html>

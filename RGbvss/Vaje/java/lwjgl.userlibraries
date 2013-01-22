@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<eclipse-userlibraries version="2">
+    <library name="lwjgl" systemlibrary="false">
+        <archive nativelibpaths="C:/Develop/eclipse/librarys/lwjgl-2.6/native/windows" path="C:/Develop/eclipse/librarys/lwjgl-2.6/jar/lwjgl.jar"/>
+        <archive nativelibpaths="C:/Develop/eclipse/librarys/lwjgl-2.6/native/windows" path="C:/Develop/eclipse/librarys/lwjgl-2.6/jar/lwjgl_util.jar"/>
+    </library>
+</eclipse-userlibraries>

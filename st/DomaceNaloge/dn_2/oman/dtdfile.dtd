@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tecaj [
+<!ELEMENT tecaj (id, tema, organizator, izvajalec, prostor, stUr, termin, cena)> 
+<!ELEMENT id (#PCDATA)> 
+<!ELEMENT tema (#PCDATA)> 
+<!ELEMENT organizator (#PCDATA)> 
+<!ELEMENT izvajalec (#PCDATA)> 
+<!ELEMENT prostor (#PCDATA)> 
+<!ELEMENT stUr (#PCDATA)>
+<!ELEMENT termin (#PCDATA)>
+<!ELEMENT cena (#PCDATA)>
+
+]>

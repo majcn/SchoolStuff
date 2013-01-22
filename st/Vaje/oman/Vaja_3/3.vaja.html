@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+
+    	               "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+
+  <head>
+
+    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		
+    	<title>Javascript - naloga</title>
+		
+		<style type="text/css">
+
+			#vsebina{
+				width:200px;
+				background-color:#00FFCC;
+				padding-left:25px;
+			}
+
+		</style>
+
+		
+		<script type="text/javascript">
+		
+		function dodajElement(){
+			element = document.getElementById("vsebina");
+			
+			napis = document.getElementById("tekst");
+			
+		
+			var dodaj=true;
+			
+			if(element.hasChildNodes()){
+				tab = element.childNodes;
+				for(var i=1;i<element.childNodes.length;i++){
+					if(tab[i].innerHTML==napis.value){
+						tab[i].style.color="red";
+						dodaj=false;
+					}
+				}
+			}
+			if(dodaj){
+				novi = document.createElement("li");
+				novi.innerHTML = napis.value;
+				element.appendChild(novi);
+			}
+		
+			
+			napis.value = "";
+
+		}
+		
+		
+		</script>
+
+  </head>
+
+  <body>
+
+   		Vpiši:
+
+  		<input type="text" id="tekst"/>
+
+  		<input type="button" id="gumb" onclick="dodajElement()" value="Dodaj"/>
+
+  		<ul id="vsebina"><b><h2>tabela:</h2></b></ul> 	
+		
+		
+
+  	
+
+    
+
+  </body>
+
+</html> 

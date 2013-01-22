@@ -1,0 +1,10 @@
+<!ELEMENT vpisani (student)>
+<!ELEMENT student (ime, ulica?, posta, email+, teza, vpisna)>
+<!ELEMENT ime (#PCDATA)> 
+<!ELEMENT ulica (#PCDATA)> 
+<!ELEMENT posta (#PCDATA)> 
+<!ELEMENT email (#PCDATA)> 
+<!ELEMENT teza (#PCDATA)> 
+<!ELEMENT vpisna (#PCDATA)>
+
+<!ATTLIST teza enota (kg|lb|g) "kg">

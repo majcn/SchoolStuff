@@ -1,0 +1,9 @@
+//
+// Prefix header for all source files of the 'TBFE' target in the 'TBFE' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+	#import "Retronator.Xni.Framework.h"
+#endif

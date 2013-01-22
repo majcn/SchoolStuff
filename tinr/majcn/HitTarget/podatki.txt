@@ -1,0 +1,7 @@
+telo: x=0; y=0; h=206; w=72; ox=0; oy=0;
+lok: x=128; y=0; h=178; w=78; ox=0; oy=102;
+roka: x=226; y=0; h=14; w=54; ox=54; oy=7;
+puscica: x=226; y=30; h=8; w=80; ox=80; oy=4;
+polVrvice1: x=226; y=64; h=84; w=1; ox=0; oy=0;
+polVrvice2: x=226; y=64; h=84; w=1; ox=0; oy=84;
+ogenj: x=226; y=160; h=27; w=80; ox=?; oy=?;

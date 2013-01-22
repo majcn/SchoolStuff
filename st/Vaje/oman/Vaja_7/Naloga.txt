@@ -1,0 +1,228 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
+
+
+@WebServlet(name="Naloga", urlPatterns={"/Naloga"})
+public class Naloga extends HttpServlet {
+   
+    
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+            PrintWriter out = response.getWriter();
+            try {
+
+                out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Naloga 7</title>");
+                out.println("<link rel='stylesheet' type='text/css' href='"+request.getContextPath() +"/style.css'>");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<div id='podatki'>");
+                out.println("<form method='POST'>");
+                out.println("Ime:<br/><input type='text' name='id'><br/>");
+                out.println("<br/><br/><input type='submit'>");
+                out.println("</form>");
+                out.println("</div>");
+                out.println("</body>");
+                out.println("</html>");
+            }
+             catch (Exception ex) {
+                out.println(ex.toString());
+            }
+            finally {
+                out.close();
+            }
+    } 
+
+    /** 
+     * Handles the HTTP <code>POST</code> method.
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+            PrintWriter out = response.getWriter();
+            try {
+
+                out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Naloga 7</title>");
+                out.println("<link rel='stylesheet' type='text/css' href='"+request.getContextPath() +"/style.css'>");
+                out.println("</head>");
+                out.println("<body>");
+               
+               
+                
+                               
+                String link = "http://localhost:8080/sqlrest/CUSTOMER/"+request.getParameter("id");
+                DefaultHttpClient client = new DefaultHttpClient();
+                HttpGet zahteva = new HttpGet(link);
+                HttpResponse odgovor = client.execute(zahteva);
+                
+                
+                DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+		DocumentBuilder db = dbf.newDocumentBuilder();
+                
+                Document doc = db.parse(odgovor.getEntity().getContent());
+                
+                NodeList rez = doc.getElementsByTagName("FIRSTNAME");
+                Element linkNode = (Element)rez.item(0);
+                String ime = linkNode.getFirstChild().getNodeValue();
+                
+               
+                
+                rez = doc.getElementsByTagName("LASTNAME");
+                linkNode = (Element)rez.item(0);
+                String priimek = linkNode.getFirstChild().getNodeValue();
+                
+                rez = doc.getElementsByTagName("STREET");
+                linkNode = (Element)rez.item(0);
+                String naslov = linkNode.getFirstChild().getNodeValue();
+                
+                rez = doc.getElementsByTagName("CITY");
+                linkNode = (Element)rez.item(0);
+                String mesto = linkNode.getFirstChild().getNodeValue();
+                
+                
+                out.println("<table>");
+                out.println("<tr><td>ID stranke:</td><td>"+request.getParameter("id")+"</td></tr>");
+                out.println("<tr><td>Ime:</td><td>"+ime+"</td></tr>");
+                out.println("<tr><td>Priimek:</td><td>"+priimek+"</td></tr>");
+                out.println("<tr><td>Naslov:</td><td>"+naslov+"</td></tr>");
+                out.println("<tr><td>Mesto:</td><td>"+mesto+"</td></tr>");
+                
+           
+               
+              
+                
+                
+                mesto = mesto.replace(" ","+");
+                link = "http://www.google.com/ig/api?weather="+mesto;
+                zahteva = new HttpGet(link);
+                odgovor = client.execute(zahteva);
+                
+                InputSource temp=new InputSource(odgovor.getEntity().getContent()); temp.setEncoding("ISO-8859-1");
+                doc = db.parse(temp);
+                
+                rez = doc.getElementsByTagName("icon");
+                linkNode = (Element)rez.item(0);
+		String ikona = linkNode.getAttribute("data");
+                
+                rez = doc.getElementsByTagName("temp_c");
+                linkNode = (Element)rez.item(0);
+                String stopinje = linkNode.getAttribute("data");
+                
+                rez = doc.getElementsByTagName("day_of_week");
+                linkNode = (Element)rez.item(0);
+                String dan = linkNode.getAttribute("data");
+                  
+                
+                //////////////////////////////////////////////
+                rez = doc.getElementsByTagName("icon");
+                linkNode = (Element)rez.item(2);
+		String ikonaJutri = linkNode.getAttribute("data");
+                
+                rez = doc.getElementsByTagName("day_of_week");
+                linkNode = (Element)rez.item(1);
+                String danJutri = linkNode.getAttribute("data");
+                                
+                rez = doc.getElementsByTagName("icon");
+                linkNode = (Element)rez.item(3);
+		String ikonaPoJutri = linkNode.getAttribute("data");
+                
+                 rez = doc.getElementsByTagName("day_of_week");
+                linkNode = (Element)rez.item(2);
+                String danPoJutri = linkNode.getAttribute("data");
+                
+                           
+                 rez = doc.getElementsByTagName("icon");
+                linkNode = (Element)rez.item(4);
+		String ikonaPoPoJutri = linkNode.getAttribute("data");
+                
+                 rez = doc.getElementsByTagName("day_of_week");
+                linkNode = (Element)rez.item(3);
+                String danPoPoJutri = linkNode.getAttribute("data");
+                
+            
+                
+               
+                
+                out.println("<tr><td>Stopinje:</td><td>"+stopinje+"°C</td></tr>");
+                 out.println("</table>");
+                 out.println("<br>Napoved:<br>");
+                
+                out.println("<table border = \"1\">");
+                out.println("<tr>");
+                 out.println("<td><img src = \"http://www.google.com"+ikona+"\"></td>");
+                 out.println("<td><img src = \"http://www.google.com"+ikonaJutri+"\"></td>");
+                 out.println("<td><img src = \"http://www.google.com"+ikonaPoJutri+"\"></td>");
+                 out.println("<td><img src = \"http://www.google.com"+ikonaPoPoJutri+"\"></td>");
+                 out.println("</tr>");
+                 
+                 out.println("<tr align=\"center\">");
+                 out.println("<td>"+dan+"</td>");
+                 out.println("<td>"+danJutri+"</td>");
+                 out.println("<td>"+danPoJutri+"</td>");
+                 out.println("<td>"+danPoPoJutri+"</td>");
+                 out.println("</tr>");
+                 out.println("</table>");
+                 
+                /* out.println("<br>");
+                 out.println(dan+"&nbsp &nbsp &nbsp"+danJutri+"&nbsp &nbsp &nbsp"+danPoJutri+
+                         "&nbsp &nbsp &nbsp"+danPoPoJutri);
+           
+                */
+                out.println("</body>");
+                out.println("</html>");
+                
+               
+                
+                
+            }
+             catch (Exception ex) {
+                out.println(ex.toString());
+            }
+            finally {
+                out.close();
+            }
+    }
+
+    /** 
+     * Returns a short description of the servlet.
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }
+
+}
